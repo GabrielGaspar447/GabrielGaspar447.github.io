@@ -3,19 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <title>Portfólio Web - Gabriel Gaspar</title>
+        <style>
+            body {
+                background-color:#cccccc"
+            }
+            #NomeCompleto {
+                font-family: 'Times New Roman', Times, serif;
+            }
+            #Apresentação {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            #nome {
+                font-size: 20px; font-weight: 700;
+            }
+            #residencia {
+                font-size: 18px; font-style: italic;
+            }
+            #Skill1 {
+                font-weight: bold; font-size: 20px;
+            }
+            #Skill2 {
+                font-size: 18px;
+            }
+            #Skill3 {
+                font-size: 16px;
+            }
+        </style>
     </head>
-    <body style="background-color:#cccccc">
-        <h1 id="Nome">Gabriel Gaspar de Souza</h1>
+    <body>
+        <h1 id="NomeCompleto">Gabriel Gaspar de Souza</h1>
         <img id="Foto" src="20210506_000516.jpg" alt="Foto do dono deste portfólio relaxando em um sofá vestindo um casaco cinza ;)" width="200">
-        <p id="Apresentação">Meu nome é <strong>Gabriel</strong>, 25 anos, brasileiro, natural do Rio de Janeiro mas atualmente morando em <em>São Lourenço(MG)</em>.</p>
-        <p>Apaixonado por aviação e tecnologia desde criança, estou estudando para seguir carreira na área da programação.</p>
+        <p id="Apresentação">Meu nome é <span id="nome">Gabriel</span>, 25 anos, brasileiro, natural do Rio de Janeiro mas atualmente morando em <span id="residencia"><a href="https://pt.wikipedia.org/wiki/S%C3%A3o_Louren%C3%A7o_(Minas_Gerais)" target="_blank">São Lourenço(MG)</a></span>. <br><br> Apaixonado por aviação e tecnologia desde criança, estou estudando para seguir carreira na área da programação.</p>
 
         <hr>
         <h3>Skills</h3>
         <ul id="Skill_set">
-            <li><strong>Elevada aptidão acadêmica;</strong></li>
-            <li>Inglês avançado;</li>
-            <li>Piloto de avião.</li>
+            <li id="Skill1">Elevada aptidão acadêmica;</li>
+            <li id="Skill2">Inglês avançado;</li>
+            <li id="Skill3">Piloto de avião.</li>
         </ul>
 
         <hr>      
@@ -29,7 +54,7 @@
         <hr>
         <h5 id="Index">Índice</h5>
         <ol>
-            <li><a href="#Nome">Nome</a></li>
+            <li><a href=".Nome">Nome</a></li>
             <li><a href="#Foto">Foto</a></li>
             <li><a href="#Apresentação">Apresentação</a></li>
             <li><a href="#Skill_set">Skills</a></li>
