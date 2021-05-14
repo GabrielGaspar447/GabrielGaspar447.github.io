@@ -1,0 +1,70 @@
+body {
+  background-color:#cccccc;
+  text-align: center;
+}
+#NomeCompleto {
+  font-family: 'Times New Roman', Times, serif;
+}
+img {
+  border-radius: 100%;
+}
+#Apresentação {
+  font-family: Arial, Helvetica, sans-serif;
+}
+#nome {
+  font-size: 20px;
+  font-weight: 700;
+}
+#residencia {
+  font-size: 18px;
+  font-style: italic;
+}
+ul {
+  display: inline-block;
+  text-align: left;
+}
+ol {
+  display: inline-block;
+  text-align: left;
+  list-style-type: none;
+}
+#Skill1 {
+  font-weight: bold;
+  font-size: 20px; 
+}
+#Skill2 {
+  font-size: 18px;
+}
+#Skill3 {
+  font-size: 16px;
+}
+a {
+  text-decoration: none;
+}
+#Index {
+  margin-bottom: 10px;
+}
+
+.fotoedescriçao {
+  display: inline-block;
+  margin: 5%;
+}
+
+#Foto {
+  float: left;
+  padding: 5px;
+  background-color: black;
+  }
+
+#Apresentação {
+  margin-top: 6%;
+  margin-left: 30%;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+li:nth-child(odd) {
+  /* adicione aqui estilos para os itens impares das listas. Não vou fazer porque vai ficar ridiculo.; */
+}
