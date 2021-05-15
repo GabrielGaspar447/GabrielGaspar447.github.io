@@ -47,18 +47,20 @@ a {
 
 .fotoedescriçao {
   display: inline-block;
-  margin: 5%;
+  margin: 5% 10%;
 }
 
 #Foto {
   float: left;
   padding: 5px;
   background-color: black;
+  margin-left: 15%;
   }
 
 #Apresentação {
-  margin-top: 6%;
-  margin-left: 30%;
+  margin-top: 4%;
+  margin-left: 45%;
+  width: 40%;
 }
 
 li {
