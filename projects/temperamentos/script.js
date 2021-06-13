@@ -10,35 +10,23 @@ const divA = document.getElementById('A');
 const divB = document.getElementById('B');
 const divC = document.getElementById('C');
 const divD = document.getElementById('D');
-const btn = document.getElementById('button')
+const btn = document.getElementById('button');
+const clearBtn = document.getElementById('clear')
 
 function selected(e) {
-  const targetLine = document.getElementsByName(e.target.name);
+  const targetLine = document.getElementsByClassName(e.target.classList[1]);
   for (const i of targetLine) {
-    i.nextSibling.classList.remove('selected')
+    i.classList.remove('selected')
   }
-  e.target.nextSibling.classList.add('selected')
+  e.target.classList.add('selected')
 }
 
 function genColA() {
   for (let i = 0; i < colA.length; i += 1) {
     const div = document.createElement('div');
-    const label = document.createElement('label');
-    const input = document.createElement('input');
-    div.className = 'line';
-    input.type = 'radio';
-    input.id = `A${i}`;
-    input.name = `line${i}`;
-    input.required = true;
-    input.hidden = true;
-    input.addEventListener('click', selected)
-    input.className = 'form-check-input';
-    input.classList.add('colA');
-    label.className = 'form-check-label';
-    label.setAttribute('for', `A${i}`);
-    div.appendChild(input);
-    label.innerHTML += colA[i];
-    div.appendChild(label);
+    div.classList.add(`line`, `line${i}`, `colA`);
+    div.addEventListener('click', selected)
+    div.innerHTML += colA[i];
     divA.appendChild(div);
   }
 }
@@ -46,22 +34,9 @@ function genColA() {
 function genColB() {
   for (let i = 0; i < colB.length; i += 1) {
     const div = document.createElement('div');
-    const label = document.createElement('label');
-    const input = document.createElement('input');
-    div.className = 'line';
-    input.type = 'radio';
-    input.id = `B${i}`;
-    input.name = `line${i}`;
-    input.required = true;
-    input.hidden = true;
-    input.addEventListener('click', selected)
-    input.className = 'form-check-input';
-    input.classList.add('colB');
-    label.className = 'form-check-label';
-    label.setAttribute('for', `B${i}`);
-    div.appendChild(input);
-    label.innerHTML += colB[i];
-    div.appendChild(label);
+    div.classList.add(`line`, `line${i}`, `colB`);
+    div.addEventListener('click', selected)
+    div.innerHTML += colB[i];
     divB.appendChild(div);
   }
 }
@@ -69,22 +44,9 @@ function genColB() {
 function genColC() {
   for (let i = 0; i < colC.length; i += 1) {
     const div = document.createElement('div');
-    const label = document.createElement('label');
-    const input = document.createElement('input');
-    div.className = 'line';
-    input.type = 'radio';
-    input.id = `C${i}`;
-    input.name = `line${i}`;
-    input.required = true;
-    input.hidden = true;
-    input.addEventListener('click', selected)
-    input.className = 'form-check-input';
-    input.classList.add('colC');
-    label.className = 'form-check-label';
-    label.setAttribute('for', `C${i}`);
-    div.appendChild(input);
-    label.innerHTML += colC[i];
-    div.appendChild(label);
+    div.classList.add(`line`, `line${i}`, `colC`);
+    div.addEventListener('click', selected)
+    div.innerHTML += colC[i];
     divC.appendChild(div);
   }
 }
@@ -92,50 +54,48 @@ function genColC() {
 function genColD() {
   for (let i = 0; i < colD.length; i += 1) {
     const div = document.createElement('div');
-    const label = document.createElement('label');
-    const input = document.createElement('input');
-    div.className = 'line';
-    input.type = 'radio';
-    input.id = `D${i}`;
-    input.name = `line${i}`;
-    input.required = true;
-    input.hidden = true;
-    input.addEventListener('click', selected)
-    input.className = 'form-check-input';
-    input.classList.add('colD');
-    label.className = 'form-check-label';
-    label.setAttribute('for', `D${i}`);
-    div.appendChild(input);
-    label.innerHTML += colD[i];
-    div.appendChild(label);
+    div.classList.add(`line`, `line${i}`, `colD`);
+    div.addEventListener('click', selected)
+    div.innerHTML += colD[i];
     divD.appendChild(div);
   }
 }
 
 function result(e) {
-  e.preventDefault();
-  const checkedInputs = document.querySelectorAll('input:checked');
-  if (checkedInputs.length !== 27) {
-    return alert(`Erro: linhas em branco!\r\n\r\nPor favor selecione uma palavra em cada linha.`)
+  const selecteds = document.querySelectorAll('.selected');
+  if (selecteds.length !== 27) {
+    return alert(`Erro: linhas em branco!\r\n\r\nPor favor selecione uma palavra em cada linha.`);
   }
-  const resultColA = document.querySelectorAll('.colA:checked').length
-  const resultColB = document.querySelectorAll('.colB:checked').length
-  const resultColC = document.querySelectorAll('.colC:checked').length
-  const resultColD = document.querySelectorAll('.colD:checked').length
+  const resultColA = document.querySelectorAll('#A .selected').length;
+  const resultColB = document.querySelectorAll('#B .selected').length;
+  const resultColC = document.querySelectorAll('#C .selected').length;
+  const resultColD = document.querySelectorAll('#D .selected').length;
 
   const colunas = [divA, divB, divC, divD];
   const resultado = [resultColA, resultColB, resultColC, resultColD];
 
-  const resultLabels = document.querySelectorAll('.result')
-  for (const i of resultLabels) {
-    i.remove()
+  const results = document.querySelectorAll('.result');
+  for (const i of results) {
+    i.remove();
   }
 
   for (let i = 0; i < 4; i += 1) {
-    const label = document.createElement('label')
-    label.className = 'result'
-    label.innerHTML = resultado[i];
-    colunas[i].appendChild(label)
+    const div = document.createElement('div');
+    div.classList.add('result', 'line');
+    div.innerHTML = resultado[i];
+    colunas[i].appendChild(div);
+  }
+}
+
+function clear() {
+  const selecteds = document.querySelectorAll('.selected');
+  for (const i of selecteds) {
+    i.classList.remove('selected');
+  }
+
+  const results = document.querySelectorAll('.result');
+  for (const i of results) {
+    i.remove();
   }
 }
 
@@ -143,4 +103,5 @@ genColA();
 genColB();
 genColC();
 genColD();
-btn.addEventListener('click', result)
+btn.addEventListener('click', result);
+clearBtn.addEventListener('click', clear)
