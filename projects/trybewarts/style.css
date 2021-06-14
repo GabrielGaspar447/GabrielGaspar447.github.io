@@ -12,7 +12,6 @@ html , body {
 }
 
 .header {
-  height: auto;
   background-color: rgb(50, 167, 145);
   display: flex;
   justify-content: space-between;
@@ -43,19 +42,30 @@ header div {
   width: 33%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   flex-wrap: wrap;
 }
 
-.trybewarts-login * {
-  max-width: 155px;
-  border-radius: 20px;
-  height: auto;
-  margin-right: 5px;
+.trybewarts-login div {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.trybewarts-login input {
+  min-width: 72px;
+  border-radius: 5px;
+  margin-right: 3px;
 }
 
 #loginBtn {
+  height: min-content;
   background-color: rgb(138, 35, 138);
   color: white;
+  border-radius: 20px;
+  margin-right: 2px;
 }
 
 main {
@@ -68,36 +78,34 @@ main {
 
 #evaluation-form {
   width: 675px;
-  overflow: auto;
   display: flex;
-  flex-flow: column wrap;
-  align-items: flex-end;
+  flex-flow: column;
+  align-items: center;
 }
 
 #evaluation-form section {
-  width: 506px;
+  width: 90%;
 }
 
 hr {
-  width: 506px;
+  width: 90%;
   margin: 10px 0;
 }
 
 #form-title {
   text-align: center;
-  margin: 20px 0;
+  margin-top: 20px;
 }
 
-#section1 > div {
+#section1 div {
   display: flex;
-  flex-wrap: wrap;
 }
 
-.text-inputs, #house {
-  display: inline-block;
+.text-inputs , #house {
   height: 40px;
-  max-width: 250px;
+  width: 50%;
   border-radius: 10px;
+  margin: 5px 5px 0 0;
 }
 
 #section2 {
@@ -123,12 +131,15 @@ hr {
 }
 
 #label-content {
-  width: 95%;
+  display: flex;
+  justify-content: center;
+  width: 91%;
 }
 
 .subject-container {
   width: 95%;
   margin: 10px 0;
+  padding: 0;
   display: flex;
   justify-content: space-around;
   align-items: space-between;
@@ -141,7 +152,15 @@ hr {
 }
 
 #label-rate {
-  font-size: 15px;
+  font-size: 16px;
+}
+
+#rate-container label {
+  margin-right: 6px;
+}
+
+#rate-container input {
+  margin-top: 3px;
 }
 
 #textarea-container {
@@ -170,6 +189,7 @@ hr {
 }
 
 #label-infos {
+  text-align: center;
   margin: 5px 0;
 }
 
@@ -184,6 +204,7 @@ hr {
 #emblem-container {
   width: 675px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
