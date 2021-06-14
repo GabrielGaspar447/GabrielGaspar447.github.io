@@ -36,23 +36,24 @@ header div {
   width: 33%;
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 .trybewarts-login {
   width: 33%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .trybewarts-login * {
+  max-width: 155px;
   border-radius: 20px;
-  width: 30%;
   height: auto;
   margin-right: 5px;
 }
 
 #loginBtn {
-  width: 15%;
   background-color: rgb(138, 35, 138);
   color: white;
 }
@@ -69,9 +70,8 @@ main {
   width: 675px;
   overflow: auto;
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   align-items: flex-end;
-  flex-wrap: wrap;
 }
 
 #evaluation-form section {
@@ -88,21 +88,15 @@ hr {
   margin: 20px 0;
 }
 
-#section1 div {
+#section1 > div {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.text-inputs {
+.text-inputs, #house {
   display: inline-block;
   height: 40px;
-  width: 49%;
-  border-radius: 10px;
-}
-
-#house {
-  display: inline-block;
-  width: 49%;
-  height: 40px;
+  max-width: 250px;
   border-radius: 10px;
 }
 
