@@ -16,7 +16,8 @@ const email = document.getElementById('input-email');
 const comment = document.getElementById('textarea');
 const form = document.getElementById('evaluation-form');
 
-function checkLogin() {
+function checkLogin(e) {
+  e.preventDefault()
   if ((login.value === 'tryber@teste.com') && (password.value === '123456')) {
     alert('Olá, Tryber!');
   } else {
