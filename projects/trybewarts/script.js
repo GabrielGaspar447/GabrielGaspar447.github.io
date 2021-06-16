@@ -17,7 +17,7 @@ const comment = document.getElementById('textarea');
 const form = document.getElementById('evaluation-form');
 
 function checkLogin(e) {
-  e.preventDefault()
+  e.preventDefault();
   if ((login.value === 'tryber@teste.com') && (password.value === '123456')) {
     alert('Olá, Tryber!');
   } else {
@@ -46,7 +46,7 @@ function createRates() {
     rateBtn.type = 'radio';
     rateBtn.name = 'rate';
     rateBtn.value = i;
-    label.innerHTML += `${i} `;
+    label.innerHTML += `${i}`;
     label.appendChild(rateBtn);
     rate.appendChild(label);
   }
