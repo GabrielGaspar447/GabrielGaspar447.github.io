@@ -428,8 +428,3 @@ footer {
   }
 }
 
-@media screen and ( min-width : 1001px ) {
-  #mobile-login {
-    display: none;
-  }
-}
