@@ -22,10 +22,6 @@ header div {
   width: 33%;
 }
 
-#logo-container {
-  display: flex;
-}
-
 .trybewarts-header-logo {
   width: 70px;
 }
