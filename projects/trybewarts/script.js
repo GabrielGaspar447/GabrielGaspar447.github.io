@@ -100,20 +100,32 @@ function req21(e) {
   req21Aux2(infos);
 }
 
+// Mobile login
+const hide = 'hide-mobile-login';
 function mobile() {
   if (!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;
-    mobileLogin.style.display = 'block';
+    mobileLogin.classList.remove(hide);
   } else {
     menuBtn.classList.remove('open');
     menuOpen = false;
-    mobileLogin.style.display = 'none';
+    mobileLogin.classList.add(hide);
+  }
+}
+
+const desktop = window.matchMedia('(min-width: 1001px)');
+function hideMobileLogin() {
+  if (desktop.matches) {
+    menuBtn.classList.remove('open');
+    menuOpen = false;
+    mobileLogin.classList.add(hide);
   }
 }
 
 loginBtn.addEventListener('click', checkLogin);
 menuBtn.addEventListener('click', mobile);
+desktop.addEventListener('change', hideMobileLogin);
 houseOptions();
 createRates();
 textArea.addEventListener('keyup', counter);

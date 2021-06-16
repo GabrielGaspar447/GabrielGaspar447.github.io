@@ -70,7 +70,7 @@ header div {
   display: none;
 }
 
-#mobile-login {
+.hide-mobile-login {
   display: none;
 }
 
@@ -425,5 +425,11 @@ footer {
   #section2 hr {
     display: initial;
     width: 80%;
+  }
+}
+
+@media screen and ( min-width : 1001px ) {
+  #mobile-login {
+    display: none;
   }
 }
