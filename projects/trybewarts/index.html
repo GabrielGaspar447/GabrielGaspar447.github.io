@@ -14,14 +14,26 @@
       <img class="trybewarts-header-logo" src="images/trybewarts-header-logo.svg" alt="logo-trybewarts">
     </div>
     <h1 id="trybewarts-header-title">Trybewarts</h1>
-    <form class="trybewarts-login" action="">
-      <div>
-        <input id="login" class="form-control" type="text" placeholder="Login">
-        <input id="password" class="form-control" type="password" placeholder="Senha">
-      </div>
+    <div id="login-container">
+      <form class="trybewarts-login" action="">
+      <input id="login" class="form-control" type="text" placeholder="Login">
+      <input id="password" class="form-control" type="password" placeholder="Senha">
       <button id="loginBtn" class="btn">Logar</button>
     </form>
+    <div class="menu-btn">
+      <div class="menu-btn__burger"> </div>
+    </div>
+  </div>
   </header>
+  <div id="mobile-login">
+    <form class="trybewarts-login-mobile" action="">
+      <div>
+        <input id="login-mobile" class="form-control" type="text" placeholder="Login">
+        <input id="password-mobile" class="form-control" type="password" placeholder="Senha">
+      </div>
+      <button id="loginBtn-mobile" class="btn">Logar</button>
+    </form>
+  </div>
   <main>
     <form id="evaluation-form" action="">
       <section id="form-title">
@@ -53,6 +65,7 @@
             <input id="fs" class="form-check-input" type="radio" name="family" value="FullStack"> Família FullStack
           </label>
         </div>
+        <hr>
         <div id="content-container">
           <label id="label-content">Qual conteúdo você está com mais vontade de aprender?</label>
           <div class="subject-container form-check">
@@ -71,6 +84,7 @@
       <section id="section3">
         <div id="rate-container">
           <label id="label-rate">Como você avalia a Trybewarts?</label>
+          <div id="rates"></div>
         </div>
         <div id="textarea-container">
           <label class="textarea form-check-label">Deixe seu comentário:</label>

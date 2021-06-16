@@ -38,34 +38,61 @@ header div {
   margin: 0;
 }
 
-.trybewarts-login {
+#login-container {
   width: 33%;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
-.trybewarts-login div {
+.trybewarts-login {
   display: flex;
   justify-content: flex-end;
-  flex-wrap: wrap;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  align-items: center;
 }
 
 .trybewarts-login input {
+  display: inline-block;
   min-width: 72px;
+  max-width: 155px;
   border-radius: 5px;
   margin-right: 3px;
 }
 
 #loginBtn {
-  height: min-content;
   background-color: rgb(138, 35, 138);
   color: white;
   border-radius: 20px;
-  margin-right: 2px;
+  margin: 0 5px;
+}
+
+/* Login for mobile */
+.menu-btn {
+  display: none;
+}
+
+#mobile-login {
+  display: none;
+}
+
+.trybewarts-login-mobile {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  background-color: rgb(73, 69, 66);
+}
+
+.trybewarts-login-mobile input {
+  display: inline-block;
+  width: 30%;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+#loginBtn-mobile {
+  background-color: rgb(138, 35, 138);
+  color: white;
+  border-radius: 20px;
+  margin: 0 5px;
 }
 
 main {
@@ -95,6 +122,7 @@ hr {
 #form-title {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 #section1 div {
@@ -122,6 +150,10 @@ hr {
 
 .family-radio {
   margin: 5px 0;
+}
+
+#section2 hr {
+  display: none;
 }
 
 #content-container {
@@ -155,6 +187,10 @@ hr {
 #section3 {
   display: flex;
   flex-direction: column;
+}
+
+#rates {
+  display: inline-block;
 }
 
 #label-rate {
@@ -227,4 +263,158 @@ footer {
   color: white;
   background-color: rgb(73, 69, 66);
   margin-top: auto;
+}
+
+@media screen and ( max-width : 1000px ) {
+
+  .trybewarts-login {
+    display: none;
+  }
+
+  /* Animated menu button code from https://github.com/codeSTACKr/hamburger-animation/
+  (with a few adaptations) */
+
+  .menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-btn__burger {
+    width: 30px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-btn__burger:before , .menu-btn__burger:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 6px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-btn__burger:before {
+    transform: translateY(-10px);
+  }
+
+  .menu-btn__burger:after {
+    transform: translateY(10px);
+  }
+
+  /* ANIMATION */
+  .menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .menu-btn.open .menu-btn__burger:before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+
+  .menu-btn.open .menu-btn__burger:after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }
+
+  .trybewarts-login-mobile {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0;
+    background-color: rgb(73, 69, 66);
+  }
+
+  .trybewarts-login-mobile div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .trybewarts-login-mobile input {
+    margin-right: 10px;
+    border-radius: 5px;
+    flex-grow: 1;
+  }
+
+  #loginBtn-mobile {
+    background-color: rgb(138, 35, 138);
+    color: white;
+    border-radius: 20px;
+    margin: 0 5px;
+  }
+}
+
+@media screen and ( max-width : 672px ) {
+
+  #rate-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and ( max-width : 500px ) {
+
+  .trybewarts-login-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    background-color: rgb(73, 69, 66);
+  }
+
+  .trybewarts-login-mobile div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+  }
+
+  .trybewarts-login-mobile input {
+    width: 100%;
+    margin: 5px 0;
+    border-radius: 5px;
+    flex-grow: 1;
+  }
+
+  #loginBtn-mobile {
+    height: max-content;
+    background-color: rgb(138, 35, 138);
+    color: white;
+    border-radius: 20px;
+    margin: 0 10px;
+  }
+
+  #section1 div {
+    flex-direction: column;
+  }
+
+  .text-inputs , #house {
+    width: 100%;
+    max-width: 350px;
+    margin: 5px auto;
+  }
+
+  #section2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #family-container {
+    border-right: none;
+  }
+
+  #section2 hr {
+    display: initial;
+    width: 50%;
+  }
 }

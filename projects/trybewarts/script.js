@@ -1,8 +1,11 @@
 const login = document.getElementById('login');
 const password = document.getElementById('password');
 const loginBtn = document.getElementById('loginBtn');
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpen = false;
+const mobileLogin = document.getElementById('mobile-login');
 const selectHouse = document.getElementById('house');
-const rate = document.getElementById('rate-container');
+const rate = document.getElementById('rates');
 const textArea = document.getElementById('textarea');
 const charCounter = document.getElementById('counter');
 const agree = document.getElementById('agreement');
@@ -97,7 +100,20 @@ function req21(e) {
   req21Aux2(infos);
 }
 
+function mobile() {
+  if (!menuOpen) {
+    menuBtn.classList.add('open');
+    menuOpen = true;
+    mobileLogin.style.display = 'block';
+  } else {
+    menuBtn.classList.remove('open');
+    menuOpen = false;
+    mobileLogin.style.display = 'none';
+  }
+}
+
 loginBtn.addEventListener('click', checkLogin);
+menuBtn.addEventListener('click', mobile);
 houseOptions();
 createRates();
 textArea.addEventListener('keyup', counter);
