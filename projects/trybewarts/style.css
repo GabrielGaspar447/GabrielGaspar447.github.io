@@ -411,10 +411,19 @@ footer {
 
   #family-container {
     border-right: none;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  #content-container {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   #section2 hr {
     display: initial;
-    width: 50%;
+    width: 80%;
   }
 }
