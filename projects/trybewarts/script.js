@@ -3,7 +3,10 @@ const password = document.getElementById('password');
 const loginBtn = document.getElementById('loginBtn');
 const menuBtn = document.querySelector('.menu-btn');
 let menuOpen = false;
-const mobileLogin = document.getElementById('mobile-login');
+const mobileLogin = document.getElementById('mobile-login-container');
+const loginMobile = document.getElementById('login-mobile');
+const passwordMobile = document.getElementById('password-mobile');
+const loginBtnMobile = document.getElementById('loginBtn-mobile');
 const selectHouse = document.getElementById('house');
 const rate = document.getElementById('rates');
 const textArea = document.getElementById('textarea');
@@ -19,6 +22,8 @@ const form = document.getElementById('evaluation-form');
 function checkLogin(e) {
   e.preventDefault();
   if ((login.value === 'tryber@teste.com') && (password.value === '123456')) {
+    alert('Olá, Tryber!');
+  } else if ((loginMobile.value === 'tryber@teste.com') && (passwordMobile.value === '123456')) {
     alert('Olá, Tryber!');
   } else {
     alert('Login ou senha inválidos.');
@@ -96,8 +101,6 @@ function req21(e) {
   infos.push(`Matérias: ${req21Aux()}`);
   infos.push(`Avaliação: ${document.querySelector('input[name="rate"]:checked').value}`);
   infos.push(`Observações: ${comment.value}`);
-  infos.push('Desenvolvido por Gabriel Gaspar — Trybe - Turma 13A');
-  console.log(infos);
   req21Aux2(infos);
 }
 
@@ -125,6 +128,7 @@ function hideMobileLogin() {
 }
 
 loginBtn.addEventListener('click', checkLogin);
+loginBtnMobile.addEventListener('click', checkLogin);
 menuBtn.addEventListener('click', mobile);
 desktop.addEventListener('change', hideMobileLogin);
 houseOptions();
