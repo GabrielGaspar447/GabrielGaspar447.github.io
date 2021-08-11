@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FaCartPlus } from 'react-icons/fa';
 
 class ProductCard extends Component {
-  setLocalStorage = (id, title, price, avlQty) => {
+  AddToCard = (id, title, price, avlQty) => {
     const product = { id, title, price, quantity: 1, avlQty };
     const { onClick } = this.props;
 
@@ -32,7 +33,7 @@ class ProductCard extends Component {
     selCat,
     query } = this.props;
     return (
-      <div data-testid="product" className="home-product-card">
+      <div className="home-product-card">
         <span>{ title }</span>
         <img src={ thumbnail } alt={ title } />
         <span>
@@ -40,18 +41,16 @@ class ProductCard extends Component {
           { price.toFixed(2) }
         </span>
         { !freeShipping ? null
-          : <span className="home-ship" data-testid="free-shipping">FRETE GRÁTIS</span>}
-        <Link
-          to={ { pathname: `/details/${id}`, state: { selCat, query } } }
-          data-testid="product-detail-link"
-        >
-          <button type="button">Ver detalhes</button>
+          : <span className="home-shipping">FRETE GRÁTIS</span>}
+        <Link to={ { pathname: `/details/${id}`, state: { selCat, query } } }>
+          <button className="btn btn-info btn-sm" type="button">Ver detalhes</button>
         </Link>
         <button
-          data-testid="product-add-to-cart"
+          className="btn btn-success"
           type="button"
-          onClick={ () => this.setLocalStorage(id, title, price, avlQty) }
+          onClick={ () => this.AddToCard(id, title, price, avlQty) }
         >
+          <FaCartPlus className="home-add-cart-icon" />
           Adicionar ao carrinho
         </button>
       </div>

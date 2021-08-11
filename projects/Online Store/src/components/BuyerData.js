@@ -26,7 +26,6 @@ class BuyerData extends Component {
       <div>
         <span>Informações do comprador</span>
         <input
-          data-testid="checkout-fullname"
           type="text"
           onChange={ this.inputHandler }
           value={ name }
@@ -34,7 +33,6 @@ class BuyerData extends Component {
           placeholder="Nome Completo"
         />
         <input
-          data-testid="checkout-cpf"
           type="text"
           onChange={ this.inputHandler }
           value={ cpf }
@@ -42,7 +40,6 @@ class BuyerData extends Component {
           placeholder="CPF"
         />
         <input
-          data-testid="checkout-email"
           type="email"
           onChange={ this.inputHandler }
           value={ email }
@@ -50,7 +47,6 @@ class BuyerData extends Component {
           placeholder="Email"
         />
         <input
-          data-testid="checkout-phone"
           type="text"
           onChange={ this.inputHandler }
           value={ tel }
@@ -58,7 +54,6 @@ class BuyerData extends Component {
           placeholder="Telefone"
         />
         <input
-          data-testid="checkout-cep"
           type="text"
           onChange={ this.inputHandler }
           value={ cep }
@@ -66,7 +61,6 @@ class BuyerData extends Component {
           placeholder="CEP"
         />
         <input
-          data-testid="checkout-address"
           type="text"
           onChange={ this.inputHandler }
           value={ end }

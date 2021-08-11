@@ -73,13 +73,13 @@ class Reviews extends Component {
             <input className="revForm-email" type="email" placeholder="Email" required />
             <Rating
               className="revForm-Rating"
+              name="rating"
               precision={ 0.5 }
               onChange={ this.GetStarValue }
               required
             />
             <textarea
               className="revForm-message"
-              data-testid="product-detail-evaluation"
               name="message"
               id="review"
               cols="30"

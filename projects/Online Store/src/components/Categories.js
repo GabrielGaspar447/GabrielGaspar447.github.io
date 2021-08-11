@@ -19,14 +19,16 @@ class Categories extends Component {
     const { onClick } = this.props;
     const json = await api.getCategories();
     const categories = json.map(({ name, id }) => (
-      <label data-testid="category" key={ id } htmlFor={ name }>
+      <label key={ id } className="form-check-label" htmlFor={ name }>
         <input
+          className="form-check-input"
           type="radio"
           id={ name }
           value={ id }
           name="categories"
           onClick={ onClick }
         />
+        &nbsp;
         {name}
       </label>
     ));
@@ -38,7 +40,7 @@ class Categories extends Component {
     if (loading) return <div>Loading...</div>;
     return (
       <div className="home-categories">
-        <span>Categorias</span>
+        <span className="form-check-label">Categorias</span>
         { categories }
       </div>
     );

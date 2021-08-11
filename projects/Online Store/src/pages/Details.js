@@ -23,7 +23,7 @@ class Details extends Component {
     this.CartQuantity();
   }
 
-  setLocalStorage = (id, title, price, avlQty) => {
+  AddToCart = (id, title, price, avlQty) => {
     const product = { id, title, price, quantity: 1, avlQty };
 
     if (localStorage.cart) {
@@ -82,13 +82,13 @@ class Details extends Component {
             <div className="details-outercontainer">
               <div className="details-innercontainer">
                 <div className="details-product-info">
-                  <span data-testid="product-detail-name">{ title }</span>
+                  <span>{ title }</span>
                   <img src={ thumbnail } alt={ title } />
                   <span>
                     R$
                     { price.toFixed(2) }
                   </span>
-                  { freeShipping ? <span className="details-ship">FRETE GRÁTIS</span>
+                  { freeShipping ? <span className="details-shipping">FRETE GRÁTIS</span>
                     : null}
                 </div>
                 <div className="details-product-description">
@@ -97,9 +97,8 @@ class Details extends Component {
               </div>
               <button
                 className="details-addToCart-btn"
-                data-testid="product-detail-add-to-cart"
                 type="button"
-                onClick={ () => this.setLocalStorage(id, title, price, avlQty) }
+                onClick={ () => this.AddToCart(id, title, price, avlQty) }
               >
                 Adicionar ao carrinho
               </button>

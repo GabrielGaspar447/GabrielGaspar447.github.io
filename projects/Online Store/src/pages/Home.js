@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FcSearch } from 'react-icons/fc';
 import CartButton from '../components/CartButton';
 import Categories from '../components/Categories';
 import ProductCard from '../components/ProductCard';
@@ -10,6 +11,7 @@ class Home extends Component {
     super(props);
     this.state = {
       selectedCat: undefined,
+      loading: undefined,
       itemList: undefined,
       cartQuantity: 0,
     };
@@ -30,25 +32,29 @@ class Home extends Component {
     this.setState({ cartQuantity: soma });
   }
 
-  RenderList = async () => {
-    const { selectedCat } = this.state;
-    const searchedProduct = document.querySelector('.search-bar').value;
-    const json = await api.getProductsFromCategoryAndQuery(selectedCat, searchedProduct);
+  RenderList = async (evt = { type: 'click' }) => {
+    const magicNum = 13;
+    if (evt.type === 'click' || evt.keyCode === magicNum) {
+      this.setState({ loading: true });
+      const { selectedCat } = this.state;
+      const query = document.querySelector('.search-bar').value;
+      const json = await api.getProductsFromCategoryAndQuery(selectedCat, query);
 
-    const list = json.results.map((item) => (
-      <ProductCard
-        onClick={ this.CartQuantity }
-        key={ item.id }
-        item={ item }
-        selCat={ selectedCat }
-        query={ searchedProduct }
-      />
-    ));
+      const list = json.results.map((item) => (
+        <ProductCard
+          onClick={ this.CartQuantity }
+          key={ item.id }
+          item={ item }
+          selCat={ selectedCat }
+          query={ query }
+        />
+      ));
 
-    if (list.length === 0) {
-      this.setState({ itemList: <span>Nenhum produto foi encontrado</span> });
-    } else {
-      this.setState({ itemList: list });
+      if (list.length === 0) {
+        this.setState({ itemList: <p>Nenhum produto encontrado</p>, loading: false });
+      } else {
+        this.setState({ itemList: list, loading: false });
+      }
     }
   }
 
@@ -58,24 +64,23 @@ class Home extends Component {
   }
 
   render() {
-    const { itemList, cartQuantity } = this.state;
+    const { itemList, loading, cartQuantity } = this.state;
     return (
       <div className="home">
         <Categories onClick={ this.SetCategory } />
         <main className="home-main">
           <header className="home-header">
-            <input className="search-bar" type="text" data-testid="query-input" />
-            <button data-testid="query-button" onClick={ this.RenderList } type="button">
-              <span role="img" aria-label="lupa">🔎</span>
-            </button>
+            <input
+              className="search-bar form-control"
+              type="text"
+              placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
+              onKeyDown={ this.RenderList }
+            />
+            <FcSearch className="home-search-icon" onClick={ this.RenderList } />
             <CartButton cartQuantity={ cartQuantity } />
           </header>
           <div className="home-product-list">
-            { !itemList ? (
-              <span data-testid="home-initial-message">
-                Digite algum termo de pesquisa ou escolha uma categoria.
-              </span>)
-              : itemList}
+            { loading ? <p>Buscando produtos...</p> : itemList }
           </div>
         </main>
       </div>

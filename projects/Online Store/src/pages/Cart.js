@@ -24,24 +24,17 @@ class Cart extends Component {
     const cart = JSON.parse(localStorage.cart);
     const cartList = cart.map(({ id, title, price, quantity, avlQty }) => (
       <div className="cart-item-container" key={ id }>
-        <p data-testid="shopping-cart-product-name">{title}</p>
+        <p>{title}</p>
         <p>
           R$
           {price.toFixed(2)}
         </p>
         <span>Quantidade: </span>
-        <button
-          data-testid="product-decrease-quantity"
-          type="button"
-          onClick={ () => this.ChangeQty(id, '-') }
-        >
+        <button type="button" onClick={ () => this.ChangeQty(id, '-') }>
           -
         </button>
-        <span data-testid="shopping-cart-product-quantity">
-          {quantity}
-        </span>
+        <span>{quantity}</span>
         <button
-          data-testid="product-increase-quantity"
           type="button"
           onClick={ () => this.ChangeQty(id, '+') }
           disabled={ quantity === avlQty }
@@ -79,23 +72,15 @@ class Cart extends Component {
     const { empty, cartList } = this.state;
     return (
       <div className="cart-list-container">
-        { empty ? (
-          <span className="cart-empty-message" data-testid="shopping-cart-empty-message">
-            Seu carrinho está vazio
-          </span>)
+        { empty ? <span className="cart-empty-message">Seu carrinho está vazio</span>
           : (
             <>
               {cartList}
               <Link to="/checkout">
-                <button
-                  className="cart-checkout"
-                  type="button"
-                  data-testid="checkout-products"
-                >
-                  Finalizar compra
-                </button>
+                <button className="cart-checkout" type="button">Finalizar compra</button>
               </Link>
-            </>)}
+            </>
+          )}
       </div>
     );
   }
