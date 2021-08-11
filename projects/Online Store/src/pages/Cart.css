@@ -1,0 +1,22 @@
+.cart-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-container {
+  margin: 20px 0;
+}
+
+.cart-item-container button {
+  margin: 0 5px;
+}
+
+.cart-checkout {
+  align-self: center;
+  width: 100px;
+}
+
+.cart-empty-message {
+  margin-top: 20px;
+  text-align: center;
+}
