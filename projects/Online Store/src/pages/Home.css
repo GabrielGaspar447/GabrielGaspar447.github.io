@@ -3,7 +3,7 @@
 }
 
 .home-categories {
-  background-color: rgb(122, 122, 236);
+  background-color: #b9b9bb;
   border: 1px solid black;
   border-radius: 8px;
   display: flex;
@@ -67,6 +67,7 @@
 }
 
 .cart-quantity-1 {
+  color: black;
   font-size: 14px;
   left: 20px;
   top: 8px;
@@ -74,6 +75,7 @@
 }
 
 .cart-quantity-2 {
+  color: black;
   font-size: 14px;
   left: 16px;
   top: 8px;
@@ -87,6 +89,7 @@
 }
 
 .home-product-card {
+  position: relative;
   align-items: center;
   border: 1px solid black;
   border-radius: 20px;
@@ -97,6 +100,10 @@
   text-align: center;
   height: 370px;
   width: 300px;
+}
+
+.home-product-title {
+  width: 290px;
 }
 
 .home-product-card img {
@@ -113,5 +120,13 @@
 }
 
 .home-shipping {
-  color: rgb(48, 192, 48);
+  background-color: #c1e00c;
+  color: #198754;
+  padding: 3px;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  font-size: 10px;
+  position: absolute;
+  top: 90px;
+  right: 40px;
 }

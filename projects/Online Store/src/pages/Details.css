@@ -8,6 +8,11 @@
   justify-content: space-between;
 }
 
+.details-back-arrow {
+  height: 40px;
+  width: 40px;
+}
+
 .cart-button {
   position: relative;
 }

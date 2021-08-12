@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { MdArrowBack } from 'react-icons/md';
 import * as api from '../services/api';
 import CartButton from '../components/CartButton';
 import './Details.css';
@@ -74,7 +75,7 @@ class Details extends Component {
     return (
       <div className="details-body">
         <header className="details-header">
-          <Link to="/">Voltar</Link>
+          <Link to="/"><MdArrowBack className="details-back-arrow" /></Link>
           <CartButton cartQuantity={ cartQuantity } />
         </header>
         {!loading && (

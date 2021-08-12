@@ -32,16 +32,19 @@ class ProductCard extends Component {
       available_quantity: avlQty, shipping: { free_shipping: freeShipping } },
     selCat,
     query } = this.props;
+    const magicNum = 67;
+    const titulo = title.length > magicNum ? `${title.match(/.{1,67}/g)[0].trim()}...`
+      : title;
     return (
       <div className="home-product-card">
-        <span>{ title }</span>
+        <p className="home-product-title">{ titulo }</p>
         <img src={ thumbnail } alt={ title } />
-        <span>
+        <p>
           R$
           { price.toFixed(2) }
-        </span>
+        </p>
         { !freeShipping ? null
-          : <span className="home-shipping">FRETE GRÁTIS</span>}
+          : <p className="home-shipping">FRETE GRÁTIS</p>}
         <Link to={ { pathname: `/details/${id}`, state: { selCat, query } } }>
           <button className="btn btn-info btn-sm" type="button">Ver detalhes</button>
         </Link>
