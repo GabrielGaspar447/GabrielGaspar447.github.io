@@ -6,6 +6,7 @@ import * as api from '../services/api';
 import CartButton from '../components/CartButton';
 import './Details.css';
 import Reviews from '../components/Reviews';
+import ImageSlide from '../components/ImageSlide';
 
 class Details extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Details extends Component {
       loading: true,
       product: {},
       freeShipping: false,
+      avlQty: undefined,
       description: '',
       cartQuantity: 0,
     };
@@ -58,20 +60,20 @@ class Details extends Component {
   }
 
   GetDetails = async () => {
-    const { match: { params: { id } },
-      location: { state: { selCat, query } } } = this.props;
+    const { match: { params: { id } } } = this.props;
 
-    const json = await api.getProductsFromCategoryAndQuery(selCat, query);
-    const product = json.results.find((item) => item.id === id);
+    const product = await api.getProductById(id);
+    const avlQty = product.available_quantity;
     const freeShipping = product.shipping.free_shipping;
-    const description = (await (await fetch(`https://api.mercadolibre.com/items/${id}/description`)).json()).plain_text;
-    this.setState({ loading: false, product, freeShipping, description });
+    const description = (await api.getProductDescription(id)).plain_text;
+    this.setState({ loading: false, product, avlQty, freeShipping, description });
   }
 
   render() {
-    const { loading, product, freeShipping, description, cartQuantity } = this.state;
-    const { id, title, thumbnail, price,
-      available_quantity: avlQty } = product;
+    const { loading, product, avlQty, freeShipping,
+      description, cartQuantity } = this.state;
+    const { id, title, pictures, price } = product;
+    console.log(pictures);
     return (
       <div className="details-body">
         <header className="details-header">
@@ -80,29 +82,27 @@ class Details extends Component {
         </header>
         {!loading && (
           <>
-            <div className="details-outercontainer">
-              <div className="details-innercontainer">
-                <div className="details-product-info">
-                  <span>{ title }</span>
-                  <img src={ thumbnail } alt={ title } />
-                  <span>
-                    R$
-                    { price.toFixed(2) }
-                  </span>
-                  { freeShipping ? <span className="details-shipping">FRETE GRÁTIS</span>
-                    : null}
-                </div>
-                <div className="details-product-description">
-                  <p>{ description }</p>
-                </div>
+            <span>{ title }</span>
+            <div className="details-container">
+              <ImageSlide pictures={ pictures } />
+              <div className="details-product-info">
+                <span>
+                  R$
+                  { price.toFixed(2) }
+                </span>
+                { freeShipping ? <span className="details-shipping">FRETE GRÁTIS</span>
+                  : null}
+                <button
+                  className="details-addToCart-btn"
+                  type="button"
+                  onClick={ () => this.AddToCart(id, title, price, avlQty) }
+                >
+                  Adicionar ao carrinho
+                </button>
               </div>
-              <button
-                className="details-addToCart-btn"
-                type="button"
-                onClick={ () => this.AddToCart(id, title, price, avlQty) }
-              >
-                Adicionar ao carrinho
-              </button>
+            </div>
+            <div className="details-product-description">
+              <p>{ description }</p>
             </div>
             <Reviews id={ id } />
           </>

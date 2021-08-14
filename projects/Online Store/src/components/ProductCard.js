@@ -29,9 +29,8 @@ class ProductCard extends Component {
 
   render() {
     const { item: { id, title, thumbnail, price,
-      available_quantity: avlQty, shipping: { free_shipping: freeShipping } },
-    selCat,
-    query } = this.props;
+      available_quantity: avlQty,
+      shipping: { free_shipping: freeShipping } } } = this.props;
     const magicNum = 67;
     const titulo = title.length > magicNum ? `${title.match(/.{1,67}/g)[0].trim()}...`
       : title;
@@ -45,7 +44,7 @@ class ProductCard extends Component {
         </p>
         { !freeShipping ? null
           : <p className="home-shipping">FRETE GRÁTIS</p>}
-        <Link to={ { pathname: `/details/${id}`, state: { selCat, query } } }>
+        <Link to={ `/details/${id}` }>
           <button className="btn btn-info btn-sm" type="button">Ver detalhes</button>
         </Link>
         <button
@@ -73,12 +72,6 @@ ProductCard.propTypes = {
     }),
   }).isRequired,
   onClick: PropTypes.func.isRequired,
-  selCat: PropTypes.string,
-  query: PropTypes.string.isRequired,
-};
-
-ProductCard.defaultProps = {
-  selCat: '',
 };
 
 export default ProductCard;

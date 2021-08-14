@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { FcSearch } from 'react-icons/fc';
 import CartButton from '../components/CartButton';
 import Categories from '../components/Categories';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
 import * as api from '../services/api';
 import './Home.css';
@@ -66,24 +68,28 @@ class Home extends Component {
   render() {
     const { itemList, loading, cartQuantity } = this.state;
     return (
-      <div className="home">
-        <Categories onClick={ this.SetCategory } />
-        <main className="home-main">
-          <header className="home-header">
-            <input
-              className="search-bar form-control"
-              type="text"
-              placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
-              onKeyDown={ this.RenderList }
-            />
-            <FcSearch className="home-search-icon" onClick={ this.RenderList } />
-            <CartButton cartQuantity={ cartQuantity } />
-          </header>
-          <div className="home-product-list">
-            { loading ? <p>Buscando produtos...</p> : itemList }
-          </div>
-        </main>
-      </div>
+      <>
+        <Header />
+        <div className="home">
+          <Categories onClick={ this.SetCategory } />
+          <main className="home-main">
+            <header className="home-header">
+              <input
+                className="search-bar form-control"
+                type="text"
+                placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
+                onKeyDown={ this.RenderList }
+              />
+              <FcSearch className="home-search-icon" onClick={ this.RenderList } />
+              <CartButton cartQuantity={ cartQuantity } />
+            </header>
+            <div className="home-product-list">
+              { loading ? <p>Buscando produtos...</p> : itemList }
+            </div>
+          </main>
+        </div>
+        <Footer />
+      </>
     );
   }
 }
