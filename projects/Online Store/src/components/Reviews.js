@@ -70,7 +70,12 @@ class Reviews extends Component {
         <div className="revForm-container">
           <h3>Avalicações</h3>
           <form className="revForm-form">
-            <input className="revForm-email" type="email" placeholder="Email" required />
+            <input
+              className="revForm-email form-control"
+              type="email"
+              placeholder="Email"
+              required
+            />
             <Rating
               className="revForm-Rating"
               name="rating"
@@ -79,7 +84,7 @@ class Reviews extends Component {
               required
             />
             <textarea
-              className="revForm-message"
+              className="revForm-message form-control"
               name="message"
               id="review"
               cols="30"
@@ -87,7 +92,7 @@ class Reviews extends Component {
               placeholder="Mensagem (opcional)"
             />
             <button
-              className="revForm-button"
+              className="revForm-button btn btn-secondary"
               type="button"
               onClick={ this.SaveReview }
             >

@@ -33,15 +33,15 @@
   justify-content: center;
 }
 
-.details-container div {
-  margin: 0 20px;
-}
-
 .details-product-info {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  width: 340px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .details-product-info * {
@@ -49,11 +49,11 @@
 }
 
 .details-shipping {
-  color: rgb(48, 192, 48);
+  width: 50px;
 }
 
 .details-product-description {
-  margin: 20px 0;
+  margin: 50px 0;
   width: 800px;
 }
 
@@ -66,24 +66,29 @@
 .revForm-container {
   display: flex;
   flex-direction: column;
+  text-align: center;
+  position: relative;
+  width: 500px;
 }
 
 .revForm-form {
   border: 1px solid black;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  width: fit-content;
-}
-
-.revForm-email {
-  width: 400px;
+  padding: 10px;
 }
 
 .revForm-email, .revForm-message {
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .revForm-button {
+  background-color: #00c3ff;
   margin: 0 auto 10px;
   width: 80%;
+}
+
+.reviews-container {
+  margin: 20px 0;
 }

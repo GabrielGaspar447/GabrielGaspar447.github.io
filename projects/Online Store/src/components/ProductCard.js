@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FaCartPlus } from 'react-icons/fa';
+import * as free from '../images/free.png';
 
 class ProductCard extends Component {
   AddToCard = (id, title, price, avlQty) => {
@@ -37,13 +38,13 @@ class ProductCard extends Component {
     return (
       <div className="home-product-card">
         <p className="home-product-title">{ titulo }</p>
-        <img src={ thumbnail } alt={ title } />
+        <img className="home-product-img" src={ thumbnail } alt={ title } />
         <p>
           R$
           { price.toFixed(2) }
         </p>
         { !freeShipping ? null
-          : <p className="home-shipping">FRETE GRÁTIS</p>}
+          : <img className="home-shipping" src={ free } alt="free" />}
         <Link to={ `/details/${id}` }>
           <button className="btn btn-info btn-sm" type="button">Ver detalhes</button>
         </Link>

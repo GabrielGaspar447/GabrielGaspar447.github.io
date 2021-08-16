@@ -3,7 +3,7 @@
 }
 
 .home-categories {
-  background-color: #6c6c6c;
+  background-color: #c7c7c7;
   border: 1px solid black;
   border-radius: 8px;
   display: flex;
@@ -98,15 +98,16 @@
   justify-content: center;
   margin: 20px 0;
   text-align: center;
-  height: 370px;
-  width: 300px;
+  height: 390px;
+  width: 320px;
+  padding: 10px;
 }
 
 .home-product-title {
   width: 290px;
 }
 
-.home-product-card img {
+.home-product-img {
   height: 90px;
 }
 
@@ -120,13 +121,8 @@
 }
 
 .home-shipping {
-  background-color: #c1e00c;
-  color: #198754;
-  padding: 3px;
-  writing-mode: vertical-lr;
-  text-orientation: upright;
-  font-size: 10px;
+  width: 45px;
   position: absolute;
-  top: 90px;
-  right: 40px;
+  top: 200px;
+  right: 20px;
 }

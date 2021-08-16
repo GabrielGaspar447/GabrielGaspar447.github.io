@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MdArrowBack } from 'react-icons/md';
+import { FaCartPlus } from 'react-icons/fa';
 import * as api from '../services/api';
 import CartButton from '../components/CartButton';
 import './Details.css';
 import Reviews from '../components/Reviews';
 import ImageSlide from '../components/ImageSlide';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import * as free from '../images/free.png';
 
 class Details extends Component {
   constructor(props) {
@@ -75,39 +79,48 @@ class Details extends Component {
     const { id, title, pictures, price } = product;
     console.log(pictures);
     return (
-      <div className="details-body">
-        <header className="details-header">
-          <Link to="/"><MdArrowBack className="details-back-arrow" /></Link>
-          <CartButton cartQuantity={ cartQuantity } />
-        </header>
-        {!loading && (
-          <>
-            <span>{ title }</span>
-            <div className="details-container">
-              <ImageSlide pictures={ pictures } />
-              <div className="details-product-info">
-                <span>
-                  R$
-                  { price.toFixed(2) }
-                </span>
-                { freeShipping ? <span className="details-shipping">FRETE GRÁTIS</span>
-                  : null}
-                <button
-                  className="details-addToCart-btn"
-                  type="button"
-                  onClick={ () => this.AddToCart(id, title, price, avlQty) }
-                >
-                  Adicionar ao carrinho
-                </button>
+      <>
+        <Header />
+        <div className="details-body">
+          <header className="details-header">
+            <Link to="/"><MdArrowBack className="details-back-arrow" /></Link>
+            <CartButton cartQuantity={ cartQuantity } />
+          </header>
+          {!loading && (
+            <>
+              <div className="details-container">
+                <ImageSlide pictures={ pictures } />
+                <div className="details-product-info">
+                  <span>{ title }</span>
+                  <span>
+                    R$&nbsp;
+                    { price.toFixed(2) }
+                  </span>
+                  { freeShipping ? <img
+                    className="details-shipping"
+                    src={ free }
+                    alt="free"
+                  />
+                    : null}
+                  <button
+                    className="btn btn-success"
+                    type="button"
+                    onClick={ () => this.AddToCard(id, title, price, avlQty) }
+                  >
+                    <FaCartPlus className="home-add-cart-icon" />
+                    Adicionar ao carrinho
+                  </button>
+                </div>
               </div>
-            </div>
-            <div className="details-product-description">
-              <p>{ description }</p>
-            </div>
-            <Reviews id={ id } />
-          </>
-        )}
-      </div>
+              <div className="details-product-description">
+                <p>{ description }</p>
+              </div>
+              <Reviews id={ id } />
+            </>
+          )}
+        </div>
+        <Footer />
+      </>
     );
   }
 }

@@ -33,14 +33,16 @@ class ImageSlide extends Component {
     const { pictures } = this.props;
     const { index } = this.state;
     return (
-      <div className="pictures-container">
+      <div className="slide-container">
         { pictures.length > 1 ? (
           <>
             <MdNavigateBefore
               className="previous-image"
               onClick={ () => this.prevImg(pictures, index) }
             />
-            <img src={ pictures[index].url } alt="Product-Pic" />
+            <div className="picture-container">
+              <img src={ pictures[index].url } alt="Product-Pic" />
+            </div>
             <MdNavigateNext
               className="next-image"
               onClick={ () => this.nextImg(pictures, index) }

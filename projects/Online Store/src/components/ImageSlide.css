@@ -1,14 +1,24 @@
-.pictures-container {
+.slide-container {
   position: relative;
   height: 600px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-right: 20px;
 }
 
-.pictures-container img {
-  width: 400px;
-  max-height: 600px;
+.picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  margin: 0;
+}
+
+.picture-container img {
+  max-height: 500px;
+  max-width: 500px;
 }
 
 .previous-image {
