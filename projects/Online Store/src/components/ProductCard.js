@@ -5,8 +5,8 @@ import { FaCartPlus } from 'react-icons/fa';
 import * as free from '../images/free.png';
 
 class ProductCard extends Component {
-  AddToCard = (id, title, price, avlQty) => {
-    const product = { id, title, price, quantity: 1, avlQty };
+  AddToCard = ({ id, title, price, thumbnail, available_quantity: avlQty }) => {
+    const product = { id, title, price, thumbnail, quantity: 1, avlQty };
     const { onClick } = this.props;
 
     if (localStorage.cart) {
@@ -29,9 +29,9 @@ class ProductCard extends Component {
   }
 
   render() {
-    const { item: { id, title, thumbnail, price,
-      available_quantity: avlQty,
-      shipping: { free_shipping: freeShipping } } } = this.props;
+    const { item } = this.props;
+    const { id, title, thumbnail, price,
+      shipping: { free_shipping: freeShipping } } = item;
     const magicNum = 67;
     const titulo = title.length > magicNum ? `${title.match(/.{1,67}/g)[0].trim()}...`
       : title;
@@ -51,7 +51,7 @@ class ProductCard extends Component {
         <button
           className="btn btn-success"
           type="button"
-          onClick={ () => this.AddToCard(id, title, price, avlQty) }
+          onClick={ () => this.AddToCard(item) }
         >
           <FaCartPlus className="home-add-cart-icon" />
           Adicionar ao carrinho

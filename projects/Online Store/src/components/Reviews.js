@@ -8,6 +8,8 @@ class Reviews extends Component {
     this.state = {
       starValue: '',
       reviewList: undefined,
+      message: '',
+      email: '',
     };
   }
 
@@ -15,17 +17,19 @@ class Reviews extends Component {
     this.RenderReviews();
   }
 
+  UpdateState = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+  }
+
   GetStarValue = (evt, value) => {
     this.setState({ starValue: value });
   }
 
   SaveReview = () => {
-    const { starValue } = this.state;
+    const { starValue, email, message } = this.state;
     const { id } = this.props;
 
-    const email = document.querySelector('.revForm-email').value;
     const rating = starValue;
-    const message = document.querySelector('.revForm-message').value;
 
     const review = { email, rating, message };
 
@@ -41,6 +45,8 @@ class Reviews extends Component {
     } else {
       localStorage[id] = JSON.stringify([review]);
     }
+
+    this.setState({ email: '', message: '' });
 
     this.RenderReviews();
   }
@@ -64,7 +70,7 @@ class Reviews extends Component {
   }
 
   render() {
-    const { reviewList } = this.state;
+    const { reviewList, message, email } = this.state;
     return (
       <>
         <div className="revForm-container">
@@ -72,14 +78,16 @@ class Reviews extends Component {
           <form className="revForm-form">
             <input
               className="revForm-email form-control"
+              name="email"
               type="email"
               placeholder="Email"
+              value={ email }
+              onChange={ this.UpdateState }
               required
             />
             <Rating
               className="revForm-Rating"
               name="rating"
-              precision={ 0.5 }
               onChange={ this.GetStarValue }
               required
             />
@@ -90,6 +98,8 @@ class Reviews extends Component {
               cols="30"
               rows="10"
               placeholder="Mensagem (opcional)"
+              onChange={ this.UpdateState }
+              value={ message }
             />
             <button
               className="revForm-button btn btn-secondary"

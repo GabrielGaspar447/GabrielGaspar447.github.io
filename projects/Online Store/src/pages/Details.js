@@ -22,6 +22,7 @@ class Details extends Component {
       avlQty: undefined,
       description: '',
       cartQuantity: 0,
+      quantity: 1,
     };
   }
 
@@ -30,8 +31,12 @@ class Details extends Component {
     this.CartQuantity();
   }
 
-  AddToCart = (id, title, price, avlQty) => {
-    const product = { id, title, price, quantity: 1, avlQty };
+  UpdateState = ({ target: { name, value } }) => {
+    this.setState({ [name]: parseInt(value, 10) });
+  }
+
+  AddToCart = ({ id, title, price, thumbnail }, avlQty, quantity) => {
+    const product = { id, title, price, thumbnail, quantity, avlQty };
 
     if (localStorage.cart) {
       const cart = JSON.parse(localStorage.cart);
@@ -75,9 +80,8 @@ class Details extends Component {
 
   render() {
     const { loading, product, avlQty, freeShipping,
-      description, cartQuantity } = this.state;
+      description, cartQuantity, quantity } = this.state;
     const { id, title, pictures, price } = product;
-    console.log(pictures);
     return (
       <>
         <Header />
@@ -96,16 +100,31 @@ class Details extends Component {
                     R$&nbsp;
                     { price.toFixed(2) }
                   </span>
-                  { freeShipping ? <img
-                    className="details-shipping"
-                    src={ free }
-                    alt="free"
-                  />
+                  { freeShipping ? (
+                    <img
+                      className="details-shipping"
+                      src={ free }
+                      alt="free"
+                    />
+                  )
                     : null}
+                  <label htmlFor="qtt">
+                    Quantidade:&nbsp;
+                    <input
+                      className="details-quantity-input"
+                      type="number"
+                      name="quantity"
+                      min="1"
+                      max={ avlQty }
+                      value={ quantity }
+                      onKeyDown={ (e) => e.preventDefault() }
+                      onChange={ this.UpdateState }
+                    />
+                  </label>
                   <button
                     className="btn btn-success"
                     type="button"
-                    onClick={ () => this.AddToCard(id, title, price, avlQty) }
+                    onClick={ () => this.AddToCart(product, avlQty, quantity) }
                   >
                     <FaCartPlus className="home-add-cart-icon" />
                     Adicionar ao carrinho
