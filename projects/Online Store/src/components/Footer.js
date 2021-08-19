@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        Footer
+        © 2021 Gabriel Gaspar.  All rights reserved.
       </footer>
     );
   }

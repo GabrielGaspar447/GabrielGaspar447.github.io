@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        Header
+        This is a work in progress, all contents in this application are subject to change at anytime without prior notice.
       </header>
     );
   }
