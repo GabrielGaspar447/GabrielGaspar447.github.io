@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/recipe-app/static/css/main.8406d388.chunk.css",
+    "main.js": "/recipe-app/static/js/main.c7be4e36.chunk.js",
+    "main.js.map": "/recipe-app/static/js/main.c7be4e36.chunk.js.map",
+    "runtime-main.js": "/recipe-app/static/js/runtime-main.b4c1aa53.js",
+    "runtime-main.js.map": "/recipe-app/static/js/runtime-main.b4c1aa53.js.map",
+    "static/js/2.33ed4496.chunk.js": "/recipe-app/static/js/2.33ed4496.chunk.js",
+    "static/js/2.33ed4496.chunk.js.map": "/recipe-app/static/js/2.33ed4496.chunk.js.map",
+    "index.html": "/recipe-app/index.html",
+    "precache-manifest.e0bc6941236c77894c81c2652fb0ad30.js": "/recipe-app/precache-manifest.e0bc6941236c77894c81c2652fb0ad30.js",
+    "service-worker.js": "/recipe-app/service-worker.js",
+    "static/css/main.8406d388.chunk.css.map": "/recipe-app/static/css/main.8406d388.chunk.css.map",
+    "static/js/2.33ed4496.chunk.js.LICENSE.txt": "/recipe-app/static/js/2.33ed4496.chunk.js.LICENSE.txt",
+    "static/media/blackHeartIcon.svg": "/recipe-app/static/media/blackHeartIcon.fed97292.svg",
+    "static/media/drinkIcon.svg": "/recipe-app/static/media/drinkIcon.e20c3bb8.svg",
+    "static/media/exploreIcon.svg": "/recipe-app/static/media/exploreIcon.8486ec46.svg",
+    "static/media/mealIcon.svg": "/recipe-app/static/media/mealIcon.0a218dad.svg",
+    "static/media/profileIcon.svg": "/recipe-app/static/media/profileIcon.8712a673.svg",
+    "static/media/searchIcon.svg": "/recipe-app/static/media/searchIcon.4552d440.svg",
+    "static/media/shareIcon.svg": "/recipe-app/static/media/shareIcon.bede9005.svg",
+    "static/media/whiteHeartIcon.svg": "/recipe-app/static/media/whiteHeartIcon.7e5b379e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b4c1aa53.js",
+    "static/js/2.33ed4496.chunk.js",
+    "static/css/main.8406d388.chunk.css",
+    "static/js/main.c7be4e36.chunk.js"
+  ]
+}
